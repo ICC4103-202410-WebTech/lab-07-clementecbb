@@ -1,5 +1,7 @@
 class AddUserIdToPosts < ActiveRecord::Migration[7.1]
   def change
-    add_reference :posts, :user, null: false, foreign_key: true
+    change_table :posts do |t|
+      t.belongs_to :user
+    end
   end
 end
